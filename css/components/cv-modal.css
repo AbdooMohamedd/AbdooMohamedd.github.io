@@ -1,0 +1,222 @@
+/**
+ * CV Modal Component Styles
+ */
+
+/* CV Button */
+.cv-btn {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  border-radius: 25px 0;
+  font-size: 14px;
+  color: var(--smoky-black);
+  background: var(--orange-yellow-crayola);
+  padding: 8px 12px;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.cv-btn:hover {
+  background: var(--vegas-gold);
+  transform: translateY(-2px);
+}
+
+.cv-btn ion-icon {
+  font-size: 16px;
+}
+
+.cv-btn span {
+  font-weight: var(--fw-500);
+}
+
+/* CV Modal */
+.cv-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all var(--transition-1);
+}
+
+.cv-modal-container.active {
+  pointer-events: all;
+  visibility: visible;
+  opacity: 1;
+}
+
+.cv-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.cv-modal {
+  background: var(--eerie-black-2);
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  max-width: 1000px;
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  box-shadow: var(--shadow-5);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cv-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--jet);
+  background: var(--onyx);
+}
+
+.cv-modal-header h3 {
+  color: var(--white-2);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-500);
+  margin: 0;
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cv-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  transition: var(--transition-1);
+}
+
+.cv-download-btn:hover {
+  background: var(--vegas-gold);
+  transform: translateY(-1px);
+}
+
+.cv-download-btn ion-icon {
+  font-size: 16px;
+}
+
+.cv-close-btn {
+  background: var(--bittersweet-shimmer);
+  color: var(--white-2);
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.cv-close-btn:hover {
+  background: #e74c3c;
+  transform: scale(1.05);
+}
+
+.cv-close-btn ion-icon {
+  font-size: 20px;
+}
+
+.cv-modal-content {
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+}
+
+.cv-modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-modal {
+    width: 95vw;
+    height: 95vh;
+  }
+
+  .cv-modal-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .cv-modal-header h3 {
+    font-size: var(--fs-4);
+  }
+
+  .cv-modal-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cv-download-btn {
+    flex: 1;
+    justify-content: center;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-btn {
+    left: -10px;
+    top: -10px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .cv-btn span {
+    display: none;
+  }
+
+  .cv-btn ion-icon {
+    font-size: 18px;
+  }
+
+  .cv-modal-header h3 {
+    font-size: var(--fs-5);
+  }
+
+  .cv-download-btn {
+    font-size: var(--fs-8);
+    padding: 6px 12px;
+  }
+}

@@ -1,0 +1,58 @@
+/**
+ * Notification Component Styles
+ */
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: var(--fw-500);
+  font-size: var(--fs-6);
+  box-shadow: var(--shadow-3);
+  z-index: 1000;
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all var(--transition-1);
+  max-width: 350px;
+}
+
+.notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notification--success {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border-left: 4px solid #2E7D32;
+}
+
+.notification--error {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  border-left: 4px solid #C62828;
+}
+
+.notification--info {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+  border-left: 4px solid #1565C0;
+}
+
+.notification--warning {
+  background: linear-gradient(135deg, #FF9800, #F57C00);
+  border-left: 4px solid #E65100;
+}
+
+@media (max-width: 480px) {
+  .notification {
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    transform: translateY(-100px);
+  }
+
+  .notification.show {
+    transform: translateY(0);
+  }
+}
