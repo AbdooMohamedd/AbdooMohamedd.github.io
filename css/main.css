@@ -250,6 +250,290 @@
   }
 }
 
+/* Modern Services Section */
+.services-modern {
+  margin-top: 32px;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.service-card {
+  background: linear-gradient(145deg, var(--jet) 0%, var(--onyx) 100%);
+  border: 1px solid var(--jet);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 187, 84, 0.05), transparent 50%, rgba(74, 144, 226, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--orange-yellow-crayola), #4A90E2, var(--vegas-gold), #5BA7F7);
+  background-size: 400% 400%;
+  border-radius: 24px;
+  opacity: 0;
+  z-index: -1;
+  animation: gradientShift 4s ease infinite;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border-color: transparent;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.service-icon-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--orange-yellow-crayola), var(--vegas-gold));
+  border-radius: 50%;
+  opacity: 0.1;
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon-bg {
+  opacity: 0.2;
+  transform: scale(1.2);
+}
+
+.service-icon {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 8px 16px rgba(255, 187, 84, 0.4));
+}
+
+.service-glow {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 187, 84, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.service-card:hover .service-glow {
+  opacity: 1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.5; }
+}
+
+.service-content {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.service-name {
+  color: var(--white-2);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-600);
+  margin-bottom: 16px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.service-card:hover .service-name {
+  color: var(--orange-yellow-crayola);
+}
+
+.service-name::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange-yellow-crayola), var(--vegas-gold));
+  transition: width 0.4s ease;
+}
+
+.service-card:hover .service-name::after {
+  width: 60px;
+}
+
+.service-description {
+  color: var(--light-gray-70);
+  line-height: 1.6;
+  font-size: var(--fs-6);
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-description {
+  color: var(--light-gray);
+}
+
+.service-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.tech-item {
+  background: rgba(255, 187, 84, 0.1);
+  color: var(--orange-yellow-crayola);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-500);
+  border: 1px solid rgba(255, 187, 84, 0.2);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .tech-item {
+  background: rgba(255, 187, 84, 0.2);
+  border-color: rgba(255, 187, 84, 0.4);
+  transform: translateY(-2px);
+}
+
+.service-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--orange-yellow-crayola), var(--vegas-gold));
+  color: var(--smoky-black-1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-700);
+  font-size: var(--fs-7);
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 8px rgba(255, 187, 84, 0.3);
+}
+
+.service-card:hover .service-number {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 8px 16px rgba(255, 187, 84, 0.5);
+}
+
+/* Service card specific colors */
+.service-card[data-category="data-science"]:hover::after {
+  background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+  background-size: 400% 400%;
+}
+
+.service-card[data-category="ai-engineering"]:hover::after {
+  background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+}
+
+.service-card[data-category="web-scraping"]:hover::after {
+  background: linear-gradient(45deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
+  background-size: 400% 400%;
+}
+
+.service-card[data-category="machine-learning"]:hover::after {
+  background: linear-gradient(45deg, #fa709a, #fee140, #ff9a9e, #fecfef);
+  background-size: 400% 400%;
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .service-card {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  
+  .service-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .service-name {
+    font-size: var(--fs-4);
+    margin-bottom: 12px;
+  }
+  
+  .service-description {
+    font-size: var(--fs-7);
+  }
+  
+  .tech-item {
+    font-size: var(--fs-9);
+    padding: 3px 8px;
+  }
+  
+  .service-number {
+    width: 28px;
+    height: 28px;
+    top: 16px;
+    right: 16px;
+  }
+}
+
 /* Modern Testimonials Section */
 .testimonials-modern {
   margin-top: 32px;
