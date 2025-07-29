@@ -305,76 +305,158 @@
         <!-- Testimonials Section -->
         <section class="testimonials-modern">
           <h3 class="h3 testimonials-title">What People Say</h3>
-          <div class="testimonials-grid">
-            <div class="testimonial-card" data-testimonials-item>
-              <div class="testimonial-header">
-                <div class="testimonial-avatar">
-                  <img src="./assets/images/avatar-1.png" alt="Omar Akram" width="60" data-testimonials-avatar>
-                  <div class="quote-icon">
-                    <ion-icon name="chatbubble-outline"></ion-icon>
+          <div class="testimonials-slider">
+            <div class="testimonials-grid" id="testimonials-track">
+              <div class="testimonial-card" data-testimonials-item>
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="./assets/images/avatar-1.png" alt="Omar Akram" width="60" data-testimonials-avatar>
+                    <div class="quote-icon">
+                      <ion-icon name="chatbubble-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="testimonial-info">
+                    <h4 class="testimonial-name" data-testimonials-title>Omar Akram</h4>
+                    <p class="testimonial-role">Cloud Engineer</p>
+                    <a href="https://www.linkedin.com/in/omar-akram-08439b23b/" class="testimonial-linkedin" target="_blank" rel="noopener">
+                      <ion-icon name="logo-linkedin"></ion-icon>
+                      LinkedIn
+                    </a>
                   </div>
                 </div>
-                <div class="testimonial-info">
-                  <h4 class="testimonial-name" data-testimonials-title>Omar Akram</h4>
-                  <p class="testimonial-role">Cloud Engineer</p>
-                  <a href="https://www.linkedin.com/in/omar-akram-08439b23b/" class="testimonial-linkedin" target="_blank" rel="noopener">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                    LinkedIn
-                  </a>
+                <div class="testimonial-content" data-testimonials-text>
+                  <p>
+                    "Abdelrahman is a truly dedicated and skilled data scientist. Having worked with him on several projects, 
+                    I can say that his commitment and hard work are exceptional. It's always a pleasure collaborating with him, 
+                    and I'm excited about the projects we'll work on together in the future."
+                  </p>
+                </div>
+                <div class="testimonial-rating">
+                  <div class="stars">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
                 </div>
               </div>
-              <div class="testimonial-content" data-testimonials-text>
-                <p>
-                  "Abdelrahman is a truly dedicated and skilled data scientist. Having worked with him on several projects, 
-                  I can say that his commitment and hard work are exceptional. It's always a pleasure collaborating with him, 
-                  and I'm excited about the projects we'll work on together in the future."
-                </p>
-              </div>
-              <div class="testimonial-rating">
-                <div class="stars">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                </div>
-              </div>
-            </div>
 
-            <div class="testimonial-card" data-testimonials-item>
-              <div class="testimonial-header">
-                <div class="testimonial-avatar">
-                  <img src="./assets/images/businessman.png" alt="Mohamed Sameh" width="60" data-testimonials-avatar>
-                  <div class="quote-icon">
-                    <ion-icon name="chatbubble-outline"></ion-icon>
+              <div class="testimonial-card" data-testimonials-item>
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="./assets/images/businessman.png" alt="Mohamed Sameh" width="60" data-testimonials-avatar>
+                    <div class="quote-icon">
+                      <ion-icon name="chatbubble-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="testimonial-info">
+                    <h4 class="testimonial-name" data-testimonials-title>Mohamed Sameh</h4>
+                    <p class="testimonial-role">Data Analyst</p>
+                    <a href="https://www.linkedin.com/in/mohamed-sameh-05a8021a5/" class="testimonial-linkedin" target="_blank" rel="noopener">
+                      <ion-icon name="logo-linkedin"></ion-icon>
+                      LinkedIn
+                    </a>
                   </div>
                 </div>
-                <div class="testimonial-info">
-                  <h4 class="testimonial-name" data-testimonials-title>Mohamed Sameh</h4>
-                  <p class="testimonial-role">Data Analyst</p>
-                  <a href="https://www.linkedin.com/in/mohamed-sameh-05a8021a5/" class="testimonial-linkedin" target="_blank" rel="noopener">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                    LinkedIn
-                  </a>
+                <div class="testimonial-content" data-testimonials-text>
+                  <p>
+                    "Working with Abdelrahman Mohamed was an outstanding experience. He not only met my expectations but exceeded 
+                    them, delivering exactly what I had envisioned and more. His ability to transform complex data into clear, 
+                    actionable insights was impressive."
+                  </p>
+                </div>
+                <div class="testimonial-rating">
+                  <div class="stars">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
                 </div>
               </div>
-              <div class="testimonial-content" data-testimonials-text>
-                <p>
-                  "Working with Abdelrahman Mohamed was an outstanding experience. He not only met my expectations but exceeded 
-                  them, delivering exactly what I had envisioned and more. His ability to transform complex data into clear, 
-                  actionable insights was impressive."
-                </p>
+
+              <!-- Add more testimonials for demonstration -->
+              <!-- <div class="testimonial-card" data-testimonials-item>
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="./assets/images/woman.png" alt="Sarah Johnson" width="60" data-testimonials-avatar>
+                    <div class="quote-icon">
+                      <ion-icon name="chatbubble-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="testimonial-info">
+                    <h4 class="testimonial-name" data-testimonials-title>Sarah Johnson</h4>
+                    <p class="testimonial-role">Product Manager</p>
+                    <a href="#" class="testimonial-linkedin" target="_blank" rel="noopener">
+                      <ion-icon name="logo-linkedin"></ion-icon>
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+                <div class="testimonial-content" data-testimonials-text>
+                  <p>
+                    "Abdelrahman's expertise in AI engineering and data science is truly remarkable. His innovative approach 
+                    to solving complex problems and his ability to communicate technical concepts clearly made our collaboration 
+                    extremely productive and enjoyable."
+                  </p>
+                </div>
+                <div class="testimonial-rating">
+                  <div class="stars">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
               </div>
-              <div class="testimonial-rating">
-                <div class="stars">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
+
+              <div class="testimonial-card" data-testimonials-item>
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="./assets/images/woman3.png" alt="Emma Davis" width="60" data-testimonials-avatar>
+                    <div class="quote-icon">
+                      <ion-icon name="chatbubble-outline"></ion-icon>
+                    </div>
+                  </div>
+                  <div class="testimonial-info">
+                    <h4 class="testimonial-name" data-testimonials-title>Emma Davis</h4>
+                    <p class="testimonial-role">Marketing Director</p>
+                    <a href="#" class="testimonial-linkedin" target="_blank" rel="noopener">
+                      <ion-icon name="logo-linkedin"></ion-icon>
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+                <div class="testimonial-content" data-testimonials-text>
+                  <p>
+                    "Working with Abdelrahman was a game-changer for our data strategy. His web scraping solutions and data 
+                    analysis insights provided us with competitive advantages we never thought possible. Highly recommended!"
+                  </p>
+                </div>
+                <div class="testimonial-rating">
+                  <div class="stars">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
                 </div>
               </div>
             </div>
+          </div> -->
+          
+          <div class="slider-nav">
+            <button class="slider-btn" id="prevBtn" aria-label="Previous testimonial">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
+            <div class="slider-dots" id="sliderDots"></div>
+            <button class="slider-btn" id="nextBtn" aria-label="Next testimonial">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
           </div>
         </section>
 

@@ -7,6 +7,7 @@ import { Portfolio } from './components/Portfolio.js';
 import { ContactForm } from './components/ContactForm.js';
 import { TestimonialModal } from './components/TestimonialModal.js';
 import { CVViewer } from './components/CVViewer.js';
+import TestimonialsSlider from './components/TestimonialsSlider.js';
 
 /**
  * Application Class
@@ -37,6 +38,7 @@ class PortfolioApp {
       this.components.contactForm = new ContactForm();
       this.components.testimonialModal = new TestimonialModal();
       this.components.cvViewer = new CVViewer();
+      this.components.testimonialsSlider = new TestimonialsSlider();
 
       console.log('Portfolio application initialized successfully');
     } catch (error) {
