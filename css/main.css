@@ -250,6 +250,67 @@
   }
 }
 
+/* Simple About Section */
+.about-text-simple {
+  margin: 32px 0 48px;
+}
+
+.highlight-words {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.highlight-word {
+  font-size: 1.8rem;
+  font-weight: var(--fw-700);
+  color: var(--orange-yellow-crayola);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255, 187, 84, 0.1);
+  border: 2px solid rgba(255, 187, 84, 0.3);
+  transition: all 0.3s ease;
+}
+
+.highlight-word:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(255, 187, 84, 0.3);
+  background: rgba(255, 187, 84, 0.2);
+}
+
+.about-paragraph {
+  color: var(--light-gray-70);
+  line-height: 1.8;
+  font-size: var(--fs-6);
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.about-paragraph strong {
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-600);
+}
+
+@media (max-width: 768px) {
+  .highlight-words {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .highlight-word {
+    font-size: 1.5rem;
+  }
+  
+  .about-paragraph {
+    text-align: left;
+  }
+}
+
 /* Modern Services Section */
 .services-modern {
   margin-top: 32px;
