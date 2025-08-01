@@ -11,7 +11,6 @@ export class CVViewer {
 
   init() {
     this.createCVButton();
-    this.createCVModal();
   }
 
   createCVButton() {
@@ -19,10 +18,12 @@ export class CVViewer {
     const sidebarInfo = DOMUtils.querySelector('.sidebar-info');
     if (!sidebarInfo) return;
 
-    // Create CV button
-    const cvButton = DOMUtils.createElement('button', {
+    // Create CV button as a link
+    const cvButton = DOMUtils.createElement('a', {
       className: 'cv-btn',
-      'data-cv-btn': '',
+      href: 'https://drive.google.com/file/d/15kdd6MYIb7xi1j2NnvOaeWIt39egN7Sn/view',
+      target: '_blank',
+      rel: 'noopener noreferrer',
       title: 'View CV'
     });
 
@@ -36,11 +37,6 @@ export class CVViewer {
     if (moreBtn) {
       moreBtn.insertAdjacentElement('afterend', cvButton);
     }
-
-    // Bind click event
-    cvButton.addEventListener('click', () => {
-      this.openCVModal();
-    });
   }
 
   createCVModal() {
