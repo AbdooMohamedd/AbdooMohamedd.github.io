@@ -4,31 +4,32 @@
 
 /* CV Button */
 .cv-btn {
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  border-radius: 25px 0;
-  font-size: 14px;
-  color: var(--smoky-black);
-  background: var(--orange-yellow-crayola);
-  padding: 8px 12px;
-  box-shadow: var(--shadow-2);
-  transition: var(--transition-1);
-  z-index: 1;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, var(--orange-yellow-crayola), var(--vegas-gold));
+  color: var(--smoky-black);
   border: none;
+  border-radius: 12px;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 187, 84, 0.3);
+  width: 100%;
+  justify-content: center;
 }
 
 .cv-btn:hover {
-  background: var(--vegas-gold);
+  background: linear-gradient(135deg, var(--vegas-gold), var(--orange-yellow-crayola));
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 187, 84, 0.4);
 }
 
 .cv-btn ion-icon {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .cv-btn span {
@@ -197,18 +198,17 @@
 
 @media (max-width: 480px) {
   .cv-btn {
-    left: -10px;
-    top: -10px;
-    padding: 6px 10px;
-    font-size: 12px;
+    padding: 8px 12px;
+    font-size: var(--fs-8);
+    margin-top: 10px;
   }
 
   .cv-btn span {
-    display: none;
+    font-size: var(--fs-8);
   }
 
   .cv-btn ion-icon {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .cv-modal-header h3 {

@@ -53,6 +53,8 @@ class PortfolioApp {
     this.initContactForm();
     // Initialize project modal functionality
     this.initProjectModal();
+    // Initialize fullscreen image viewer
+    this.initFullscreenImageViewer();
   }
 
   initSidebar() {
@@ -271,6 +273,83 @@ class PortfolioApp {
         input.classList.remove('error');
       });
     });
+  }
+
+  /**
+   * Initialize fullscreen image viewer for profile pictures
+   */
+  initFullscreenImageViewer() {
+    // Create fullscreen modal if it doesn't exist
+    if (!document.querySelector('.fullscreen-image-modal')) {
+      this.createFullscreenModal();
+    }
+
+    // Add click listeners to all profile images
+    const profileImages = document.querySelectorAll('.avatar-box img[src*="IMG_8337.JPG"]');
+    const modal = document.querySelector('.fullscreen-image-modal');
+    const fullscreenImage = document.querySelector('.fullscreen-image');
+    const closeBtn = document.querySelector('.fullscreen-close-btn');
+
+    if (profileImages.length > 0 && modal && fullscreenImage && closeBtn) {
+      // Add click listeners to profile images
+      profileImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+          e.preventDefault();
+          fullscreenImage.src = img.src;
+          fullscreenImage.alt = img.alt;
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Close modal when close button is clicked
+      closeBtn.addEventListener('click', () => {
+        this.closeFullscreenModal();
+      });
+
+      // Close modal when clicking outside the image
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          this.closeFullscreenModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          this.closeFullscreenModal();
+        }
+      });
+    }
+  }
+
+  /**
+   * Create fullscreen modal HTML structure
+   */
+  createFullscreenModal() {
+    const modalHTML = `
+      <div class="fullscreen-image-modal">
+        <div class="fullscreen-image-container">
+          <img src="" alt="" class="fullscreen-image">
+          <button class="fullscreen-close-btn" aria-label="Close fullscreen image">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+  }
+
+  /**
+   * Close fullscreen modal
+   */
+  closeFullscreenModal() {
+    const modal = document.querySelector('.fullscreen-image-modal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 
   /**
