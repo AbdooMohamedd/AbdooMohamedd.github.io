@@ -32,10 +32,11 @@ export class CVViewer {
       <span>View CV</span>
     `;
 
-    // Insert after the info_more-btn
-    const moreBtn = sidebarInfo.querySelector('.info_more-btn');
-    if (moreBtn) {
-      moreBtn.insertAdjacentElement('afterend', cvButton);
+    // Insert after the title element in info-content
+    const infoContent = sidebarInfo.querySelector('.info-content');
+    const titleElement = infoContent?.querySelector('.title');
+    if (titleElement) {
+      titleElement.insertAdjacentElement('afterend', cvButton);
     }
   }
 
