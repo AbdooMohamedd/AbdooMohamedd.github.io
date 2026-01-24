@@ -10,6 +10,7 @@
 /* Component styles */
 @import url('./components/cv-modal.css');
 @import url('./components/notifications.css');
+@import url('./components/enhancements.css');
 
 /* Legacy styles (to be refactored) */
 @import url('../assets/css/style.css');

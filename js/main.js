@@ -55,6 +55,12 @@ class PortfolioApp {
     this.initProjectModal();
     // Initialize fullscreen image viewer
     this.initFullscreenImageViewer();
+    // Initialize back to top button
+    this.initBackToTop();
+    // Initialize toast notifications
+    this.initToastNotifications();
+    // Initialize image lazy loading
+    this.initImageLazyLoading();
   }
 
   initSidebar() {
@@ -349,6 +355,97 @@ class PortfolioApp {
     if (modal) {
       modal.classList.remove('active');
       document.body.style.overflow = '';
+    }
+  }
+
+  /**
+   * Initialize Back to Top Button
+   */
+  initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Scroll to top when clicked
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  /**
+   * Initialize Toast Notifications
+   */
+  initToastNotifications() {
+    // Handle CV download button
+    const downloadCvBtn = document.getElementById('downloadCvBtn');
+    if (downloadCvBtn) {
+      downloadCvBtn.addEventListener('click', (e) => {
+        this.showToast('CV download started!');
+      });
+    }
+  }
+
+  /**
+   * Show toast notification
+   * @param {string} message - Message to display
+   * @param {number} duration - Duration in milliseconds (default: 3000)
+   */
+  showToast(message, duration = 3000) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+
+    // Update message if span exists
+    const messageSpan = toast.querySelector('span');
+    if (messageSpan) {
+      messageSpan.textContent = message;
+    }
+
+    // Show toast
+    toast.classList.add('show');
+
+    // Hide after duration
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, duration);
+  }
+
+  /**
+   * Initialize Image Lazy Loading with fade-in effect
+   */
+  initImageLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    images.forEach(img => {
+      img.addEventListener('load', () => {
+        img.classList.add('fade-in');
+      });
+    });
+
+    // Use Intersection Observer for better performance
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            // Image will load naturally due to loading="lazy"
+            img.classList.add('fade-in');
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      images.forEach(img => imageObserver.observe(img));
     }
   }
 

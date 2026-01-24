@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://abdoomohamedd.github.io/sitemap.xml
+
+# Disallow specific directories (if any)
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+
+# Allow crawling of main pages
+Allow: /index.html
+Allow: /resume.html
+Allow: /portfolio.html
+Allow: /blog.html
+Allow: /contact.html

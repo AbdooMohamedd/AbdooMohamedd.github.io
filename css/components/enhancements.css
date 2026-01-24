@@ -1,0 +1,615 @@
+/**
+ * Portfolio Enhancements CSS - New Components and Styles
+ */
+
+/* ==========================================
+   FEATURED PROJECTS SECTION
+   ========================================== */
+.featured-projects {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.featured-card {
+  background: var(--eerie-black-2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--jet);
+}
+
+.featured-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+}
+
+.featured-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.featured-card:hover .featured-image img {
+  transform: scale(1.1);
+}
+
+.featured-overlay {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(255, 215, 0, 0.9);
+  color: var(--smoky-black);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.featured-content {
+  padding: 25px;
+}
+
+.featured-title {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.featured-description {
+  color: var(--light-gray);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.featured-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  background: var(--onyx);
+  color: var(--orange-yellow-crayola);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--jet);
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange-yellow-crayola);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.cta-link:hover {
+  gap: 12px;
+}
+
+/* ==========================================
+   ENHANCED SKILLS SECTION WITH PROFICIENCY LEVELS
+   ========================================== */
+.skill-category-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.skill-category-title ion-icon {
+  font-size: 24px;
+  color: var(--orange-yellow-crayola);
+}
+
+.skill-tag {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.skill-tag.expert {
+  background: linear-gradient(135deg, var(--orange-yellow-crayola), #ff9500);
+  color: var(--smoky-black);
+  font-weight: 600;
+  border: none;
+}
+
+.skill-tag.proficient {
+  background: var(--onyx);
+  border: 2px solid var(--orange-yellow-crayola);
+  color: var(--orange-yellow-crayola);
+}
+
+.skill-tag.familiar {
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  color: var(--light-gray-70);
+}
+
+.skill-tag.expert:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+/* ==========================================
+   TIMELINE ENHANCEMENTS
+   ========================================== */
+.timeline-highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 12px;
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 3px solid var(--orange-yellow-crayola);
+  border-radius: 6px;
+}
+
+.timeline-highlight ion-icon {
+  color: var(--orange-yellow-crayola);
+  font-size: 20px;
+}
+
+.timeline-highlight span {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.timeline-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.timeline-achievements li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-left: 0;
+}
+
+.timeline-achievements ion-icon {
+  color: var(--orange-yellow-crayola);
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.timeline-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+/* ==========================================
+   YOUXEL EXPERIENCE SECTION - Enhanced
+   ========================================== */
+.youxel-experience .experience-content {
+  margin-top: 20px;
+}
+
+.youxel-experience .experience-intro {
+  color: #FFFFFF;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+  border-left: 3px solid var(--orange-yellow-crayola);
+  border-radius: 8px;
+}
+
+.youxel-experience .experience-intro strong {
+  color: var(--orange-yellow-crayola);
+}
+
+.responsibilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.responsibility-item {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  background: var(--eerie-black-2);
+  border-radius: 12px;
+  border: 1px solid var(--jet);
+  transition: all 0.3s ease;
+}
+
+.responsibility-item:hover {
+  border-color: var(--orange-yellow-crayola);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
+}
+
+.responsibility-icon {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  background: linear-gradient(135deg, var(--orange-yellow-crayola) 0%, #ff9500 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsibility-icon ion-icon {
+  font-size: 22px;
+  color: var(--smoky-black);
+}
+
+.responsibility-content h5 {
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.responsibility-content p {
+  color: #E0E0E0;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .responsibilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .responsibility-item {
+    padding: 15px;
+  }
+  
+  .responsibility-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+  
+  .responsibility-icon ion-icon {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================
+   BLOG STATS SECTION
+   ========================================== */
+.blog-stats {
+  margin: 40px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+}
+
+.stat-card ion-icon {
+  font-size: 40px;
+  color: var(--orange-yellow-crayola);
+  margin-bottom: 15px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: var(--light-gray);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   BACK TO TOP BUTTON
+   ========================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--white);
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   TOAST NOTIFICATION
+   ========================================== */
+.toast {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--eerie-black-1);
+  color: var(--white);
+  padding: 15px 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--orange-yellow-crayola);
+  z-index: 10000;
+  transition: bottom 0.4s ease;
+}
+
+.toast.show {
+  bottom: 30px;
+}
+
+.toast ion-icon {
+  font-size: 24px;
+  color: var(--orange-yellow-crayola);
+}
+
+.toast span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ==========================================
+   SKELETON LOADERS FOR IMAGES
+   ========================================== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--eerie-black-2) 25%,
+    var(--onyx) 50%,
+    var(--eerie-black-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+}
+
+/* Fade-in animation for loaded images */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATIONS
+   ========================================== */
+@media (max-width: 768px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-achievements li {
+    font-size: 14px;
+  }
+
+  .featured-title {
+    font-size: 18px;
+  }
+
+  .featured-description {
+    font-size: 13px;
+  }
+}
+
+/* ==========================================
+   ENHANCED SECTION SPACING
+   ========================================== */
+.services-modern,
+.testimonials-modern,
+.skills-technologies,
+.featured-projects,
+.languages-section,
+.timeline,
+.blog-posts,
+.blog-stats,
+.projects {
+  margin-bottom: 60px;
+}
+
+.section-title,
+.h3.service-title,
+.h3.testimonials-title,
+.h3.skills-title,
+.h3.form-title {
+  margin-bottom: 30px;
+}
+
+/* ==========================================
+   IMPROVED TOUCH TARGETS FOR MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+  .navbar-link,
+  .filter-btn,
+  .form-btn,
+  .cta-btn,
+  .social-link {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ==========================================
+   CERTIFICATES COMPACT LAYOUT
+   ========================================== */
+.timeline-item .certificate-meta {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.timeline-item .certificate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--orange-yellow-crayola);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 12px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.timeline-item .certificate-link:hover {
+  background: rgba(255, 215, 0, 0.2);
+  transform: translateX(3px);
+}
+
+.timeline-item .certificate-link ion-icon {
+  font-size: 14px;
+}
+
+/* Remove extra spacing between certificate meta and description */
+.timeline-item .certificate-meta + .timeline-text {
+  margin-top: 12px;
+  border-top: none;
+  padding-top: 0;
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+@media print {
+  .back-to-top,
+  .navbar,
+  .sidebar,
+  .toast {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .main-content {
+    max-width: 100%;
+    padding: 0;
+  }
+}
