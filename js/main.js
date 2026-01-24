@@ -76,6 +76,230 @@ class PortfolioApp {
     } else {
       console.warn('Sidebar button or sidebar element not found');
     }
+
+    // Initialize mobile sidebar functionality
+    this.initMobileSidebar();
+  }
+
+  initMobileSidebar() {
+    // Check if on mobile
+    const isMobile = () => window.innerWidth <= 580;
+    
+    if (!isMobile()) return;
+
+    const sidebar = document.querySelector('[data-sidebar]');
+    if (!sidebar) return;
+
+    // Create mobile header if it doesn't exist
+    this.createMobileHeader();
+    
+    // Create overlay
+    this.createSidebarOverlay();
+    
+    // Create close button inside sidebar
+    this.createMobileCloseBtn();
+    
+    // Create swipe indicator
+    this.createSwipeIndicator();
+
+    // Handle swipe gestures
+    this.initSwipeGestures();
+
+    // Prevent clicks inside sidebar from closing it
+    sidebar.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // Prevent touchend inside sidebar from triggering close
+    sidebar.addEventListener('touchend', (e) => {
+      e.stopPropagation();
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (!isMobile()) {
+        this.closeMobileSidebar();
+      }
+    });
+  }
+
+  createMobileHeader() {
+    // Check if mobile header already exists
+    if (document.querySelector('.mobile-header')) return;
+
+    const main = document.querySelector('main');
+    if (!main) return;
+
+    const mobileHeader = document.createElement('div');
+    mobileHeader.className = 'mobile-header';
+    mobileHeader.innerHTML = `
+      <div class="mobile-header-info">
+        <span class="mobile-header-name">Abdelrahman Mohamed</span>
+        <span class="mobile-header-title">GenAI/ML & Automation Engineer</span>
+      </div>
+      <button class="mobile-menu-btn" aria-label="Open menu" type="button">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+    `;
+
+    // Insert at the beginning of main
+    main.insertBefore(mobileHeader, main.firstChild);
+
+    // Add click event to menu button
+    const menuBtn = mobileHeader.querySelector('.mobile-menu-btn');
+    menuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.openMobileSidebar();
+    });
+    
+    // Also handle touch for better mobile response
+    menuBtn.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.openMobileSidebar();
+    });
+  }
+
+  createSidebarOverlay() {
+    if (document.querySelector('.sidebar-overlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    // Close sidebar when clicking overlay
+    overlay.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.closeMobileSidebar();
+    });
+    
+    overlay.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.closeMobileSidebar();
+    });
+  }
+
+  createMobileCloseBtn() {
+    const sidebar = document.querySelector('[data-sidebar]');
+    if (!sidebar || sidebar.querySelector('.mobile-sidebar-close')) return;
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'mobile-sidebar-close';
+    closeBtn.setAttribute('aria-label', 'Close sidebar');
+    closeBtn.setAttribute('type', 'button');
+    closeBtn.innerHTML = '<ion-icon name="close-outline"></ion-icon>';
+    
+    sidebar.insertBefore(closeBtn, sidebar.firstChild);
+
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.closeMobileSidebar();
+    });
+    
+    closeBtn.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.closeMobileSidebar();
+    });
+  }
+
+  createSwipeIndicator() {
+    if (document.querySelector('.swipe-indicator')) return;
+
+    const indicator = document.createElement('div');
+    indicator.className = 'swipe-indicator';
+    document.body.appendChild(indicator);
+    
+    // Hide indicator after 8 seconds
+    setTimeout(() => {
+      if (indicator && indicator.parentNode) {
+        indicator.style.opacity = '0';
+        setTimeout(() => {
+          if (indicator && indicator.parentNode) {
+            indicator.remove();
+          }
+        }, 300);
+      }
+    }, 8000);
+  }
+
+  initSwipeGestures() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    const sidebar = document.querySelector('[data-sidebar]');
+    const swipeThreshold = 60;
+    const edgeThreshold = 40; // Start swipe within 40px from left edge
+    const maxSwipeTime = 300; // Max time for swipe gesture
+
+    // Only handle swipes on document, not inside sidebar
+    document.addEventListener('touchstart', (e) => {
+      // Ignore if touch is inside sidebar
+      if (sidebar && sidebar.contains(e.target)) return;
+      
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      // Ignore if touch started inside sidebar
+      if (sidebar && sidebar.contains(e.target)) return;
+      
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const touchEndTime = Date.now();
+      
+      const diffX = touchEndX - touchStartX;
+      const diffY = Math.abs(touchEndY - touchStartY);
+      const timeDiff = touchEndTime - touchStartTime;
+      
+      // Only handle quick horizontal swipes (not slow drags or vertical scrolls)
+      if (timeDiff > maxSwipeTime) return;
+      if (diffY > Math.abs(diffX)) return;
+      
+      // Swipe right from left edge to open
+      if (diffX > swipeThreshold && touchStartX < edgeThreshold && !sidebar.classList.contains('mobile-open')) {
+        this.openMobileSidebar();
+      }
+      
+      // Swipe left anywhere to close (when sidebar is open)
+      if (diffX < -swipeThreshold && sidebar.classList.contains('mobile-open')) {
+        this.closeMobileSidebar();
+      }
+    }, { passive: true });
+  }
+
+  openMobileSidebar() {
+    const sidebar = document.querySelector('[data-sidebar]');
+    const overlay = document.querySelector('.sidebar-overlay');
+    
+    if (sidebar) {
+      sidebar.classList.add('mobile-open');
+      document.body.classList.add('sidebar-open');
+      document.body.style.overflow = 'hidden';
+    }
+    if (overlay) {
+      overlay.classList.add('active');
+    }
+  }
+
+  closeMobileSidebar() {
+    const sidebar = document.querySelector('[data-sidebar]');
+    const overlay = document.querySelector('.sidebar-overlay');
+    
+    if (sidebar) {
+      sidebar.classList.remove('mobile-open');
+      document.body.classList.remove('sidebar-open');
+      document.body.style.overflow = '';
+    }
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
   }
 
   initNavigationStates() {

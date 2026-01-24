@@ -108,9 +108,17 @@ Updated 5 AI Engineering projects with appropriate images:
 - No separator lines between button and description
 - Hover effect with slight movement
 
-### ✅ Sidebar Fix
-- Removed problematic z-index CSS that was hiding social links on mobile
-- Sidebar now works correctly on both mobile and desktop views
+### ✅ Mobile Slide-Out Sidebar (Phone Only)
+- **New mobile header**: Shows name, job title, and menu button - always visible
+- **Slide-in sidebar**: Slides from left edge using CSS transform (no empty space)
+- **Swipe gesture support**: Swipe right from left edge to open, swipe left to close
+- **Menu button**: Tap hamburger icon to open sidebar
+- **Overlay**: Dark overlay behind sidebar when open (click to close)
+- **Close button**: X button inside sidebar to close
+- **Click handling fixed**: Clicks inside sidebar work correctly (links, buttons)
+- **Event propagation**: Sidebar content clicks don't accidentally close sidebar
+- **Swipe indicator**: Subtle visual hint on left edge (disappears after 8 seconds)
+- **Desktop unchanged**: All changes only affect mobile view (< 580px)
 
 ---
 
